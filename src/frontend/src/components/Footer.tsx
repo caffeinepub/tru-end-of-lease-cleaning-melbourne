@@ -1,5 +1,5 @@
 import type { Route } from "@/hooks/useHashRouter";
-import { CheckCircle2, MapPin, Phone } from "lucide-react";
+import { ArrowRight, CheckCircle2, MapPin, Phone } from "lucide-react";
 import { SiWhatsapp } from "react-icons/si";
 
 interface FooterProps {
@@ -15,22 +15,22 @@ const serviceLinks: { label: string; route: Route }[] = [
   { label: "Kitchen Cleaning", route: "/services/kitchen-cleaning" },
 ];
 
-const suburbs = [
-  "Melbourne CBD",
-  "Southbank",
-  "Richmond",
-  "St Kilda",
-  "Fitzroy",
-  "Carlton",
-  "Collingwood",
-  "Brunswick",
-  "Hawthorn",
-  "South Yarra",
-  "Prahran",
-  "Toorak",
-  "Brighton",
-  "Doncaster",
-  "Box Hill",
+const suburbLinks: { label: string; route: Route }[] = [
+  { label: "Melbourne CBD", route: "/suburbs/melbourne-cbd" },
+  { label: "Southbank", route: "/suburbs/southbank" },
+  { label: "Richmond", route: "/suburbs/richmond" },
+  { label: "St Kilda", route: "/suburbs/st-kilda" },
+  { label: "Fitzroy", route: "/suburbs/fitzroy" },
+  { label: "Carlton", route: "/suburbs/carlton" },
+  { label: "Brunswick", route: "/suburbs/brunswick" },
+  { label: "Hawthorn", route: "/suburbs/hawthorn" },
+  { label: "South Yarra", route: "/suburbs/south-yarra" },
+  { label: "Prahran", route: "/suburbs/prahran" },
+  { label: "Toorak", route: "/suburbs/toorak" },
+  { label: "Brighton", route: "/suburbs/brighton" },
+  { label: "Doncaster", route: "/suburbs/doncaster" },
+  { label: "Box Hill", route: "/suburbs/box-hill" },
+  { label: "Footscray", route: "/suburbs/footscray" },
 ];
 
 export function Footer({ navigate }: FooterProps) {
@@ -94,10 +94,16 @@ export function Footer({ navigate }: FooterProps) {
               Service Areas
             </h3>
             <div className="grid grid-cols-2 gap-1">
-              {suburbs.map((suburb) => (
-                <span key={suburb} className="text-xs text-white/70">
-                  {suburb}
-                </span>
+              {suburbLinks.map((suburb) => (
+                <button
+                  key={suburb.route}
+                  type="button"
+                  onClick={() => navigate(suburb.route)}
+                  className="text-xs text-white/70 hover:text-brand-amber transition-colors text-left flex items-center gap-1 py-0.5"
+                >
+                  <ArrowRight className="h-2.5 w-2.5 flex-shrink-0" />
+                  {suburb.label}
+                </button>
               ))}
             </div>
             <button

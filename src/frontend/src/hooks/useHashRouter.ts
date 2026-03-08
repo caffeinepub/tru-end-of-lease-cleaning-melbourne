@@ -10,7 +10,22 @@ export type Route =
   | "/services/bathroom-cleaning"
   | "/services/kitchen-cleaning"
   | "/about"
-  | "/contact";
+  | "/contact"
+  | "/suburbs/melbourne-cbd"
+  | "/suburbs/southbank"
+  | "/suburbs/richmond"
+  | "/suburbs/st-kilda"
+  | "/suburbs/fitzroy"
+  | "/suburbs/carlton"
+  | "/suburbs/south-yarra"
+  | "/suburbs/prahran"
+  | "/suburbs/toorak"
+  | "/suburbs/brighton"
+  | "/suburbs/brunswick"
+  | "/suburbs/hawthorn"
+  | "/suburbs/doncaster"
+  | "/suburbs/box-hill"
+  | "/suburbs/footscray";
 
 function getRoute(): Route {
   const hash = window.location.hash.replace("#", "") || "/";

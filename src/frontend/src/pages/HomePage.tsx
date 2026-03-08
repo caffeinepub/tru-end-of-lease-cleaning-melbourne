@@ -64,8 +64,8 @@ const services = [
   {
     title: "End of Lease Cleaning",
     route: "/services/end-of-lease-cleaning" as Route,
-    img: "/assets/generated/hero-services.dim_1200x500.jpg",
-    alt: "Bond cleaning services Melbourne - professional cleaners",
+    img: "/assets/generated/service-end-of-lease.dim_900x500.jpg",
+    alt: "End of lease cleaning Melbourne - Tru professional bond cleaners",
     desc: "The complete bond clean that covers every inch of your rental property.",
   },
   {
@@ -655,6 +655,149 @@ export function HomePage({ navigate }: HomePageProps) {
                 </motion.div>
               ))}
             </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* ─── SUBURBS ───────────────────────────────────────────────── */}
+      <section className="section-padding bg-white">
+        <div className="container mx-auto px-4">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.1 }}
+            variants={{ visible: { transition: { staggerChildren: 0.08 } } }}
+          >
+            <motion.div
+              variants={fadeUpVariants}
+              transition={{ duration: 0.5 }}
+              className="text-center mb-10"
+            >
+              <Badge className="mb-3 bg-secondary text-primary">
+                Service Areas
+              </Badge>
+              <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-4">
+                End of Lease Cleaning Across All Melbourne Suburbs
+              </h2>
+              <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+                We cover every Melbourne suburb. Click your suburb below for
+                local pricing, information, and to book your bond clean.
+              </p>
+            </motion.div>
+
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 max-w-5xl mx-auto">
+              {[
+                {
+                  name: "Melbourne CBD",
+                  route: "/suburbs/melbourne-cbd" as Route,
+                  postcode: "3000",
+                },
+                {
+                  name: "Southbank",
+                  route: "/suburbs/southbank" as Route,
+                  postcode: "3006",
+                },
+                {
+                  name: "Richmond",
+                  route: "/suburbs/richmond" as Route,
+                  postcode: "3121",
+                },
+                {
+                  name: "St Kilda",
+                  route: "/suburbs/st-kilda" as Route,
+                  postcode: "3182",
+                },
+                {
+                  name: "Fitzroy",
+                  route: "/suburbs/fitzroy" as Route,
+                  postcode: "3065",
+                },
+                {
+                  name: "Carlton",
+                  route: "/suburbs/carlton" as Route,
+                  postcode: "3053",
+                },
+                {
+                  name: "South Yarra",
+                  route: "/suburbs/south-yarra" as Route,
+                  postcode: "3141",
+                },
+                {
+                  name: "Prahran",
+                  route: "/suburbs/prahran" as Route,
+                  postcode: "3181",
+                },
+                {
+                  name: "Toorak",
+                  route: "/suburbs/toorak" as Route,
+                  postcode: "3142",
+                },
+                {
+                  name: "Brighton",
+                  route: "/suburbs/brighton" as Route,
+                  postcode: "3186",
+                },
+                {
+                  name: "Brunswick",
+                  route: "/suburbs/brunswick" as Route,
+                  postcode: "3056",
+                },
+                {
+                  name: "Hawthorn",
+                  route: "/suburbs/hawthorn" as Route,
+                  postcode: "3122",
+                },
+                {
+                  name: "Doncaster",
+                  route: "/suburbs/doncaster" as Route,
+                  postcode: "3108",
+                },
+                {
+                  name: "Box Hill",
+                  route: "/suburbs/box-hill" as Route,
+                  postcode: "3128",
+                },
+                {
+                  name: "Footscray",
+                  route: "/suburbs/footscray" as Route,
+                  postcode: "3011",
+                },
+              ].map((suburb, i) => (
+                <motion.button
+                  key={suburb.name}
+                  type="button"
+                  data-ocid={`suburbs.item.${i + 1}`}
+                  variants={fadeUpVariants}
+                  transition={{ duration: 0.4, delay: i * 0.04 }}
+                  onClick={() => navigate(suburb.route)}
+                  className="group flex flex-col items-center justify-center p-4 rounded-xl border border-border bg-gradient-section hover:border-brand-teal hover:bg-secondary card-hover text-center transition-all"
+                  aria-label={`End of lease cleaning ${suburb.name}`}
+                >
+                  <span className="font-semibold text-sm text-foreground group-hover:text-brand-teal transition-colors">
+                    {suburb.name}
+                  </span>
+                  <span className="text-xs text-muted-foreground mt-0.5">
+                    {suburb.postcode}
+                  </span>
+                  <ArrowRight className="h-3.5 w-3.5 text-brand-teal mt-1.5 opacity-0 group-hover:opacity-100 transition-opacity" />
+                </motion.button>
+              ))}
+            </div>
+
+            <motion.p
+              variants={fadeUpVariants}
+              transition={{ duration: 0.5 }}
+              className="text-center mt-6 text-sm text-muted-foreground"
+            >
+              Don't see your suburb?{" "}
+              <button
+                type="button"
+                onClick={() => navigate("/contact")}
+                className="text-brand-teal font-medium hover:underline"
+              >
+                Contact us — we cover all Melbourne suburbs.
+              </button>
+            </motion.p>
           </motion.div>
         </div>
       </section>
