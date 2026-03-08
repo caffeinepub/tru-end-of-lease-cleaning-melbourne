@@ -1,0 +1,165 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── Self-hosted fonts ─────────────────────────────────────────────────── */
+
+@font-face {
+  font-family: "Cabinet Grotesk";
+  src: url("/assets/fonts/CabinetGrotesk-Variable.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Bricolage Grotesque";
+  src: url("/assets/fonts/BricolageGrotesque-Variable.woff2") format("woff2");
+  font-weight: 200 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "General Sans";
+  src: url("/assets/fonts/GeneralSans-Variable.woff2") format("woff2");
+  font-weight: 200 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ─── Design Tokens ─────────────────────────────────────────────────────── */
+
+@layer base {
+  :root {
+    --radius: 0.5rem;
+
+    /* Clean brand: teal-forward, fresh, professional */
+    --background: 0.98 0.004 200;
+    --foreground: 0.18 0.02 240;
+
+    --card: 1 0 0;
+    --card-foreground: 0.18 0.02 240;
+
+    --popover: 1 0 0;
+    --popover-foreground: 0.18 0.02 240;
+
+    /* Primary: deep teal */
+    --primary: 0.38 0.12 195;
+    --primary-foreground: 0.98 0 0;
+
+    /* Secondary: light teal wash */
+    --secondary: 0.94 0.025 195;
+    --secondary-foreground: 0.3 0.1 195;
+
+    --muted: 0.95 0.01 195;
+    --muted-foreground: 0.5 0.04 200;
+
+    /* Accent: warm amber for CTAs */
+    --accent: 0.75 0.18 75;
+    --accent-foreground: 0.15 0.05 30;
+
+    --destructive: 0.577 0.245 27.325;
+    --destructive-foreground: 0.985 0 0;
+
+    --border: 0.88 0.018 200;
+    --input: 0.9 0.014 200;
+    --ring: 0.38 0.12 195;
+
+    --chart-1: 0.38 0.12 195;
+    --chart-2: 0.75 0.18 75;
+    --chart-3: 0.55 0.16 160;
+    --chart-4: 0.65 0.14 220;
+    --chart-5: 0.5 0.18 30;
+
+    --sidebar: 0.22 0.04 195;
+    --sidebar-foreground: 0.98 0 0;
+    --sidebar-primary: 0.75 0.18 75;
+    --sidebar-primary-foreground: 0.1 0.02 30;
+    --sidebar-accent: 0.3 0.06 195;
+    --sidebar-accent-foreground: 0.98 0 0;
+    --sidebar-border: 0.32 0.06 195;
+    --sidebar-ring: 0.75 0.18 75;
+
+    /* Brand extras */
+    --brand-teal: 0.38 0.12 195;
+    --brand-teal-dark: 0.28 0.1 195;
+    --brand-teal-light: 0.88 0.04 195;
+    --brand-amber: 0.75 0.18 75;
+    --brand-amber-dark: 0.6 0.16 65;
+    --brand-green: 0.56 0.16 155;
+    --brand-whatsapp: 0.58 0.2 150;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: "General Sans", "Cabinet Grotesk", system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: "Bricolage Grotesque", "Cabinet Grotesk", system-ui, sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* ─── Utilities ─────────────────────────────────────────────────────────── */
+
+@layer utilities {
+  .text-brand-teal {
+    color: oklch(var(--brand-teal));
+  }
+  .bg-brand-teal {
+    background-color: oklch(var(--brand-teal));
+  }
+  .bg-brand-teal-dark {
+    background-color: oklch(var(--brand-teal-dark));
+  }
+  .bg-brand-teal-light {
+    background-color: oklch(var(--brand-teal-light));
+  }
+  .bg-brand-amber {
+    background-color: oklch(var(--brand-amber));
+  }
+  .text-brand-amber {
+    color: oklch(var(--brand-amber));
+  }
+  .bg-brand-whatsapp {
+    background-color: oklch(var(--brand-whatsapp));
+  }
+
+  .gradient-hero {
+    background: linear-gradient(
+      135deg,
+      oklch(0.22 0.06 195 / 0.85) 0%,
+      oklch(0.35 0.1 195 / 0.7) 50%,
+      oklch(0.28 0.08 185 / 0.8) 100%
+    );
+  }
+
+  .gradient-section {
+    background: linear-gradient(
+      180deg,
+      oklch(0.96 0.015 195) 0%,
+      oklch(0.98 0.005 200) 100%
+    );
+  }
+
+  .card-hover {
+    @apply transition-all duration-300 hover:-translate-y-1 hover:shadow-lg;
+  }
+
+  .section-padding {
+    @apply py-16 md:py-24;
+  }
+}
